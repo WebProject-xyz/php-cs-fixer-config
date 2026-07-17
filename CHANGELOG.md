@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.0 (2026-07-17)
+
+### Features
+
+* **config:** add config for all projects to a single place ([9dc6368](https://github.com/WebProject-xyz/php-cs-fixer-config/commit/9dc6368695bf9a491077ce0c3f5e32c925597207))
+* **config:** cleanup and extract ruleset ([e532464](https://github.com/WebProject-xyz/php-cs-fixer-config/commit/e532464a885739b034fdf65b31a01de2d998f76d))
+* **config:** remove old setting and make it cleaner ([4deef19](https://github.com/WebProject-xyz/php-cs-fixer-config/commit/4deef1942b9dde10ddcefd84d72c79106427d883))
+* **php:** allow php > 8.3 ([23370aa](https://github.com/WebProject-xyz/php-cs-fixer-config/commit/23370aaf9ed9ffe980b5730df1f5254b2c6fba63))
+
 ## [1.0.1](https://github.com/WebProject-xyz/php-package-template/compare/1.0.0...1.0.1) (2026-07-17)
 
 ### Bug Fixes
