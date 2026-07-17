@@ -37,7 +37,7 @@ final readonly class PhpCsFixerConfigFactory
      */
     private function buildRules(): array
     {
-        return (new WebProjectSet())->getRules();
+        return new WebProjectSet()->getRules();
     }
 
     /**

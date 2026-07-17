@@ -57,8 +57,7 @@ class PhpCsFixerConfigTest extends \Codeception\Test\Unit
                 'import_functions' => true,
                 'import_constants' => true,
             ],
-            'phpdoc_to_comment'                                => false,
-            'blank_line_between_import_groups'                 => false,
+            'phpdoc_to_comment'  => false,
         ];
 
         // Act

@@ -33,20 +33,14 @@ final class WebProjectSet extends \PhpCsFixer\RuleSet\AbstractRuleSetDefinition
                 ],
             ],
             'concat_space'                                  => ['spacing' => 'one'],
-
             'blank_line_after_opening_tag'                  => false, // psr 12 = true
-
             'php_unit_dedicate_assert'                      => ['target' => 'newest'],
-
             'global_namespace_import'                       => [
                 'import_classes'   => true,
                 'import_functions' => true,
                 'import_constants' => true,
             ],
-
-            'phpdoc_to_comment'                                => false,
-            // prevent mega diff
-            'blank_line_between_import_groups'              => false, // PSR 12 = true
+            'phpdoc_to_comment' => false,
         ];
     }
 }
