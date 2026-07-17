@@ -1,20 +1,22 @@
-# php-package-title
+# php-cs-fixer-config
 
-[![CI](https://github.com/WebProject-xyz/php-package-template/actions/workflows/ci.yml/badge.svg)](https://github.com/WebProject-xyz/php-package-template/actions/workflows/ci.yml)
-[![Latest Stable Version](https://img.shields.io/packagist/v/webproject-xyz/php-package-template.svg)](https://packagist.org/packages/webproject-xyz/php-package-template)
-[![PHP Version](https://img.shields.io/badge/php-%5E8.3-blue.svg)](https://www.php.net/)
+[![CI](https://github.com/WebProject-xyz/php-cs-fixer-config/actions/workflows/ci.yml/badge.svg)](https://github.com/WebProject-xyz/php-cs-fixer-config/actions/workflows/ci.yml)
+[![Latest Stable Version](https://img.shields.io/packagist/v/webproject-xyz/php-cs-fixer-config.svg)](https://packagist.org/packages/webproject-xyz/php-cs-fixer-config)
+[![PHP Version](https://img.shields.io/badge/php-%7E8.5.0-blue.svg)](https://www.php.net/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Codeception](https://img.shields.io/badge/codeception-%5E5.0-red.svg)](https://codeception.com/)
+[![Codeception](https://img.shields.io/badge/codeception-%5E5.3-red.svg)](https://codeception.com/)
 
-> **hp-package-short-description**
+> **Common PHP CS Fixer configuration for WebProject projects.**
 
-php-package-description
+Provides a standardized, robust, and modern PHP CS Fixer configuration.
 
 ---
 
 ## 🚀 Key Features
 
-- **feat:** Feature Description.
+- **Preconfigured Rules:** Includes standard rule sets like `@PSR12`, `@Symfony`, `@Symfony:risky`, `@PhpCsFixer:risky`, and `@PHP8x3Migration`.
+- **Parallel Execution:** Automatically detects and utilizes multiple CPU cores for faster analysis.
+- **Risky Rules Enabled:** Risky refactorings are allowed by default.
 
 ---
 
@@ -23,26 +25,45 @@ php-package-description
 Install the package via Composer:
 
 ```bash
-composer require --dev webproject-xyz/php-package-template
+composer require --dev webproject-xyz/php-cs-fixer-config
 ```
 
 ### Prerequisites
-- **PHP:** "~8.3.0 || ~8.4.0 || ~8.5.0"
-
----
-
-## 🖥️ Configuration
-
-### Configuration Options
-
-| Option | Description | Default |
-| :--- | :--- | :--- |
-| `option1` | Option1 description. | ... |
-
+- **PHP:** `~8.5.0`
 
 ---
 
 ## 🛠️ Usage
+
+Create a `.php-cs-fixer.php` file in the root of your project:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+return new \WebProject\PhpCsFixerConfig\PhpCsFixerConfig()(__DIR__);
+```
+
+### Customizing Directories and Exclusions
+
+You can pass specific directories to check, as well as directories to exclude:
+
+```php
+<?php
+
+declare(strict_types=1);
+
+return new \WebProject\PhpCsFixerConfig\PhpCsFixerConfig()(
+    dirs: [
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ],
+    excludeDirs: [
+        __DIR__ . '/tests/_output',
+    ]
+);
+```
 
 ---
 
@@ -55,9 +76,11 @@ We maintain high standards for this module:
 
 ### Commands
 ```bash
+composer qa        # Run all Quality Assurance checks (build tests, fix CS, run tests, run phpstan)
 composer stan      # Run static analysis
-composer test      # Run acceptance tests
+composer test      # Run unit tests
 composer cs:check  # Check coding standards
+composer cs:fix    # Fix coding standards automatically
 ```
 
 ---
@@ -82,5 +105,5 @@ Distributed under the **MIT** License. See `LICENSE` for more information.
 
 ## ✉️ Support & Contact
 
-- **Issues:** Please use the [GitHub Issue Tracker](https://github.com/WebProject-xyz/php-package-template/issues).
+- **Issues:** Please use the [GitHub Issue Tracker](https://github.com/WebProject-xyz/php-cs-fixer-config/issues).
 - **Website:** [webproject.xyz](https://www.webproject.xyz)

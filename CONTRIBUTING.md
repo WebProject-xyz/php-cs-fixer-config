@@ -1,16 +1,16 @@
-# Contributing to Codeception Module for PHP OpenAPI Mock Server
+# Contributing to PHP CS Fixer Config
 
 First off, thank you for considering contributing to this project! It's people like you who make the open-source community such an amazing place to learn, inspire, and create.
 
 ## 🛠️ Development Setup
 
-To get started with development, you'll need to have PHP 8.3+ and Composer installed on your machine.
+To get started with development, you'll need to have PHP 8.5+ and Composer installed on your machine.
 
 1.  **Fork the repository** on GitHub.
 2.  **Clone your fork** locally:
     ```bash
-    git clone https://github.com/your-username/php-package-template.git
-    cd php-package-template
+    git clone https://github.com/your-username/php-cs-fixer-config.git
+    cd php-cs-fixer-config
     ```
 3.  **Install dependencies**:
     ```bash
@@ -24,21 +24,22 @@ To get started with development, you'll need to have PHP 8.3+ and Composer insta
 
 ## 🧪 Running Tests
 
-We use Codeception for our own internal testing. To run the tests, use:
+We use Codeception for testing. To run the tests, use:
 
 ```bash
 composer test
 ```
 
-This will run the acceptance tests which verify that the module correctly starts the mock server and interacts with it.
+This will run the suite of unit tests.
 
 ## 🔍 Quality Tools
 
 We maintain high code quality standards. Before submitting a PR, ensure your code passes all checks:
 
 - **Static Analysis**: `composer stan` (runs PHPStan at Level 8)
-- **Coding Standard**: `composer cs:check` (verifies PSR-12/Symfony style)
-- **Fixing Style**: `composer cs:fix` (automatically fixes most style issues)
+- **Coding Standard**: `composer cs:check` (verifies standards)
+- **Fixing Style**: `composer cs:fix` (automatically fixes style issues)
+- **All checks**: `composer qa` (runs build, style fix, tests, and static analysis)
 
 ## 📝 Pull Request Process
 
