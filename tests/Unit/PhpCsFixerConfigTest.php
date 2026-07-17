@@ -3,13 +3,14 @@ declare(strict_types=1);
 
 namespace WebProject\PhpCsFixerConfig\Tests\Unit;
 
-use WebProject\PhpCsFixerConfig\PhpCsFixerConfig;
+use PhpCsFixer\Config as PhpCsFixerConfigModel;
+use WebProject\PhpCsFixerConfig\PhpCsFixerConfigFactory as PhpCsFixerConfig;
 use WebProject\PhpCsFixerConfig\Tests\Support\UnitTester;
 
 class PhpCsFixerConfigTest extends \Codeception\Test\Unit
 {
     protected UnitTester $tester;
-    protected \PhpCsFixer\Config $phpCsFixerConfig;
+    protected PhpCsFixerConfigModel $phpCsFixerConfig;
 
     protected function _setUp(): void
     {
