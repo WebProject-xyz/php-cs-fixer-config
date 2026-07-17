@@ -14,7 +14,7 @@ class PhpCsFixerConfigTest extends \Codeception\Test\Unit
 
     protected function _setUp(): void
     {
-        $this->phpCsFixerConfig = new PhpCsFixerConfig()(__DIR__);
+        $this->phpCsFixerConfig = (new PhpCsFixerConfig())(__DIR__);
 
         parent::_setUp();
     }

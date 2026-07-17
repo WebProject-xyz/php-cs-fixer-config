@@ -19,7 +19,7 @@ final readonly class PhpCsFixerConfigFactory
      */
     public function __invoke(array|string $dirs, array|string $excludeDirs = []): Config
     {
-        return new Config(self::NAME)
+        return (new Config(self::NAME))
             ->setRiskyAllowed(true)
             ->setRules($this->buildRules())
             ->setUsingCache(true)
@@ -37,7 +37,7 @@ final readonly class PhpCsFixerConfigFactory
      */
     private function buildRules(): array
     {
-        return new WebProjectSet()->getRules();
+        return (new WebProjectSet())->getRules();
     }
 
     /**
@@ -47,7 +47,7 @@ final readonly class PhpCsFixerConfigFactory
     private function buildFinder(array|string $dirs, array|string $excludeDirs = []): Finder
     {
         // 💡 by default, Fixer looks for `*.php` files excluding `./vendor/` - here, you can groom this config
-        return new Finder()
+        return (new Finder())
             // 💡 root folder to check
             ->in($dirs)
             // 💡 additional files, eg bin entry file

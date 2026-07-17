@@ -16,8 +16,10 @@ jobs:
     uses: "WebProject-xyz/.github/.github/workflows/ci.yml@923056ac2deedfddf562951d2e0f0cc7bcf278c2" # main
     secrets: inherit
     with:
-      php-version: "8.5"
+      php-version: "8.3"
       test-matrix: |
         [
-          {"php-version": "8.5", "dependencies": "highest", "with_coverage": true}
+          {"php-version": "8.3", "dependencies": "locked", "with_coverage": true},
+          {"php-version": "8.4", "dependencies": "highest", "with_coverage": false},
+          {"php-version": "8.5", "dependencies": "highest", "with_coverage": false}
         ]
