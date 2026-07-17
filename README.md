@@ -42,7 +42,7 @@ Create a `.php-cs-fixer.php` file in the root of your project:
 
 declare(strict_types=1);
 
-return new \WebProject\PhpCsFixerConfig\PhpCsFixerConfig()(__DIR__);
+return new \WebProject\PhpCsFixerConfig\PhpCsFixerConfigFactory()(__DIR__);
 ```
 
 ### Customizing Directories and Exclusions
@@ -54,7 +54,7 @@ You can pass specific directories to check, as well as directories to exclude:
 
 declare(strict_types=1);
 
-return new \WebProject\PhpCsFixerConfig\PhpCsFixerConfig()(
+return new \WebProject\PhpCsFixerConfig\PhpCsFixerConfigFactory()(
     dirs: [
         __DIR__ . '/src',
         __DIR__ . '/tests',
