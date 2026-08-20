@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/WebProject-xyz/php-cs-fixer-config/compare/1.0.1...1.1.0) (2026-08-20)
+
+### Features
+
+* **simplify:** add more auto config ([88bafc2](https://github.com/WebProject-xyz/php-cs-fixer-config/commit/88bafc2329d1b68f6b47c0127f9f5dce974f426b))
+
 ## [1.0.1](https://github.com/WebProject-xyz/php-cs-fixer-config/compare/1.0.0...1.0.1) (2026-08-20)
 
 ### Bug Fixes
