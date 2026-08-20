@@ -7,7 +7,15 @@ namespace WebProject\PhpCsFixerConfig;
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
+use Symfony\Component\Finder\SplFileInfo;
 use WebProject\PhpCsFixerConfig\RuleSet\WebProjectSet;
+
+use function basename;
+use function debug_backtrace;
+use function dirname;
+use function in_array;
+
+use const DEBUG_BACKTRACE_IGNORE_ARGS;
 
 final readonly class PhpCsFixerConfigFactory
 {
@@ -16,9 +24,23 @@ final readonly class PhpCsFixerConfigFactory
     /**
      * @phpstan-param string|string[] $dirs
      * @phpstan-param string|string[] $excludeDirs
+     * @phpstan-param string[] $append
      */
-    public function __invoke(array|string $dirs, array|string $excludeDirs = []): Config
+    public function __invoke(array|string $dirs = [], array|string $excludeDirs = [], array $append = [], bool $autoAppendFixerConfigFile = true): Config
     {
+        $calledFromFilePath = $this->findConfigFile();
+
+        // append config file formatting
+        if ($autoAppendFixerConfigFile && $calledFromFilePath && !in_array($calledFromFilePath, $append, true)) {
+            $append[] = $calledFromFilePath;
+        }
+
+        // no scan folder added -> scan project
+        if ([] === $dirs && $calledFromFilePath) {
+            $calledFromDir = dirname($calledFromFilePath);
+            $dirs[]        = $calledFromDir;
+        }
+
         return (new Config(self::NAME))
             ->setRiskyAllowed(true)
             ->setRules($this->buildRules())
@@ -28,7 +50,7 @@ final readonly class PhpCsFixerConfigFactory
             ->setParallelConfig(ParallelConfigFactory::detect())
             ->setUnsupportedPhpVersionAllowed(true)
             ->setFinder(
-                $this->buildFinder($dirs, $excludeDirs)
+                $this->buildFinder($dirs, $excludeDirs, $append)
             );
     }
 
@@ -43,8 +65,9 @@ final readonly class PhpCsFixerConfigFactory
     /**
      * @phpstan-param string|string[] $dirs
      * @phpstan-param string|string[] $excludeDirs
+     * @phpstan-param iterable<SplFileInfo|\SplFileInfo|string> $append
      */
-    private function buildFinder(array|string $dirs, array|string $excludeDirs = []): Finder
+    private function buildFinder(array|string $dirs, array|string $excludeDirs = [], iterable $append = []): Finder
     {
         // 💡 by default, Fixer looks for `*.php` files excluding `./vendor/` - here, you can groom this config
         return (new Finder())
@@ -59,6 +82,24 @@ final readonly class PhpCsFixerConfigFactory
                 // 💡 extra configs
                 // ->ignoreDotFiles(false) // true by default in v3, false in v4 or future mode
                 // ->ignoreVCS(true) // true by default
+            ->append($append)
         ;
+    }
+
+    private function findConfigFile(): ?string
+    {
+        $calledFromFilePath = null;
+        foreach (debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 5) as $trace) {
+            $calledFromFilePath = $trace['file'] ?? null;
+            if (!$calledFromFilePath) {
+                continue;
+            }
+            $calledFromFile = basename($calledFromFilePath);
+            if ('.php-cs-fixer.php' === $calledFromFile || '.php-cs-fixer.php.dist' === $calledFromFile) {
+                break;
+            }
+        }
+
+        return $calledFromFilePath;
     }
 }
