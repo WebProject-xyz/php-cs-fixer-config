@@ -17,13 +17,13 @@
   },
   "require": {
     "php": "~8.3.0 || 8.4.0 || ~8.5.0",
-    "friendsofphp/php-cs-fixer": "^3.95.20"
+    "friendsofphp/php-cs-fixer": "^3.95.24"
   },
   "require-dev": {
     "codeception/codeception": "^5.3.5",
     "codeception/module-asserts": "^3.3.0",
     "phpro/grumphp": "^2.23.0",
-    "phpstan/phpstan": "^2.2.8",
+    "phpstan/phpstan": "^2.2.12",
     "roave/security-advisories": "dev-latest"
   },
   "autoload": {
