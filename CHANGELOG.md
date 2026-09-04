@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.2](https://github.com/WebProject-xyz/php-cs-fixer-config/compare/1.1.1...1.1.2) (2026-09-04)
+
+### Bug Fixes
+
+* **deps:** update ci workflow ([8b50959](https://github.com/WebProject-xyz/php-cs-fixer-config/commit/8b5095928e6a132ad8f6973b2da247065f5f1466))
+
 ## [1.1.1](https://github.com/WebProject-xyz/php-cs-fixer-config/compare/1.1.0...1.1.1) (2026-09-01)
 
 ### Bug Fixes
