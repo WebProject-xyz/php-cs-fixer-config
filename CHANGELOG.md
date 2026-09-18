@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/WebProject-xyz/php-cs-fixer-config/compare/1.1.2...1.1.3) (2026-09-18)
+
+### Bug Fixes
+
+* **deps:** update and bump deps and php contraint ([422f2cb](https://github.com/WebProject-xyz/php-cs-fixer-config/commit/422f2cb1bc7f05439c32b3f5131fc39ca1b49a75))
+
 ## [1.1.2](https://github.com/WebProject-xyz/php-cs-fixer-config/compare/1.1.1...1.1.2) (2026-09-04)
 
 ### Bug Fixes
